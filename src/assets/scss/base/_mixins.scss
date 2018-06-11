@@ -1,0 +1,33 @@
+/* PREFIX 
+    How to: @include prefix(transform, rotate(45deg), webkit ms);
+*/
+@mixin prefix($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}
+
+/* CENTER VERTICALLY
+    How to: @include center(both);
+    Allowed: vertical, horizontal, both
+    Defaul: vertical
+*/
+@mixin center($position: 'vertical') {
+    position: absolute;
+
+    @if $position == 'vertical' {
+        top: 50%;
+        @include prefix(transform,translateY(-50%), webkit ms);
+    }
+    @else if $position == 'horizontal' {
+        left: 50%;
+        @include prefix(transform,translateX(-50%), webkit ms);
+    }
+    @else if $position == 'both' {
+        left: 50%;
+        top: 50%;
+        @include prefix(transform,translate(-50%, -50%), webkit ms);
+    }
+}

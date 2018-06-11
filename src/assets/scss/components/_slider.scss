@@ -1,0 +1,17 @@
+.slider {
+    .slider__item {
+        background: url("https://unsplash.it/g/1920/800?image=1") center;
+        background-size: cover;
+        .container {
+            position: relative;
+            height: 100vh;
+        }
+        .item__hero {
+            background: rgba(255, 255, 255, .3);
+            @include center();
+            padding: 30px 20px;
+            max-width: 60%;
+            z-index: 999;
+        }
+    }
+}

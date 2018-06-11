@@ -1,0 +1,41 @@
+.header {
+    background: $color-white;
+    padding: 15px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+
+    .header__logo,
+    .header__share {
+        @extend %inline;
+    }
+
+    .header__logo {
+        .logo__media {
+            width: 100%;
+        }
+    }
+
+    .header__share {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        float: right;
+        margin-top: 30px;
+        .share__text,
+        .share__icon {
+            @extend %inline;
+        }
+        .share__text {
+            font-size: .85rem;
+            margin-right: 15px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+        .icon {
+            width: 32px;
+        }
+    }
+
+}
