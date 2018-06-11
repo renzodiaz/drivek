@@ -63,6 +63,9 @@ html {
     border: 0;
   }
 
+%black {
+    color: $color-black;
+}
 %inline {
     display: inline-block;
     vertical-align: top;
@@ -73,6 +76,15 @@ html {
 }
 
 .button {
+  border: 2px solid $color-black;
   display: inline-block;
+  font-size: .85em;
+  padding: 10px 20px;
+  text-align: center;
   text-transform: uppercase;
+  &.is--yellow {
+    border-color: $color-yellow;
+    background: $color-yellow;
+    color: $color-white;
+  }
 }
