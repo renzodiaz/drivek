@@ -59,7 +59,8 @@ export default {
         return {
             slickOptions: {
                 slidesToShow: 1,
-                dots: false
+                dots: false,
+                arrows: false
             }
         }
     }

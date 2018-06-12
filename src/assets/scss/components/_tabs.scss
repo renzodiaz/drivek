@@ -1,5 +1,6 @@
 .tabs {
     font-size: 0;
+    padding-bottom: 30px;
     li {
         font-size: 16px;
         @extend %inline;
@@ -34,38 +35,60 @@
             }
         }
     }
-    .sidebar, 
-    .content {
-        @include breakpoint(md) {
-            display: inline-block;
+    
+}
+.tabs__content  {
+    display: none;
+    &.open {
+        display: block;
+    }
+}
+.sidebar, 
+.content {
+    @include breakpoint(md) {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+.sidebar {
+    @include breakpoint(md) {
+        width: 30%;
+    }
+}
+.content__wrap {
+    @include breakpoint(md) {
+        margin-top: 30px;
+    }
+}
+.content {
+    font-size: 16px;
+    h2 {
+        @extend %black;
+        font-size: 1.5em;
+        &.text-yellow {
+            color: $color-yellow;
+            margin: 15px 0;
+        }
+    }
+    p {
+        margin: 15px 0;
+    }
+    .content__head,
+    .content__action {
+        @include breakpoint(sm) {
+            display:  inline-block;
             vertical-align: top;
         }
     }
-    .sidebar {
-        @include breakpoint(md) {
-            width: 30%;
-        }
-    }
-    .content__wrap {
-        @include breakpoint(md) {
-            margin-top: 30px;
-        }
-    }
-    .content {
-        font-size: 16px;
-        @include breakpoint(md) {
+    .content__head {
+        @include breakpoint(sm) {
             width: 70%;
         }
-        h2 {
-            @extend %black;
-            font-size: 1.5em;
-            &.text-yellow {
-                color: $color-yellow;
-                margin: 15px 0;
-            }
-        }
-        p {
-            margin: 15px 0;
+    }
+    .content__action {
+        @include breakpoint(sm) {
+            text-align: center;
+            width: 25%;
         }
     }
 }
