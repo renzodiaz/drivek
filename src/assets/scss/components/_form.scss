@@ -3,12 +3,15 @@ input, select, textarea, .field__upload {
     border-radius: 0;
     box-sizing: border-box;
     border: 1px solid $color-gray;
-    color: $color-gray;
+    color: $color-black;
     font-size: 15px;
     padding: 10px;
     width: 100%;
     &:focus {
         border-bottom: 2px solid $color-black;
+    }
+    &.error {
+        border: 1px solid red;
     }
 }
 .field__upload {

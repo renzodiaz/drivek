@@ -42,7 +42,9 @@
 .tabs__content  {
     display: none;
     &.open {
+        @include animate-prefixer(animation, 'fadeOut .3s');
         display: block;
+        position: relative;
     }
 }
 .sidebar, 
@@ -61,6 +63,7 @@
     }
 }
 .content__wrap {
+    text-align: center;
     @include breakpoint(md) {
         margin-top: 30px;
     }
@@ -68,6 +71,7 @@
 
 .content {
     font-size: 16px;
+    text-align: left;
     h2 {
         @extend %black;
         font-size: 1.5em;
@@ -77,7 +81,9 @@
         }
     }
     p {
+        font-size: .85em;
         margin: 15px 0;
+        line-height: 18px;
     }
     .content__head,
     .content__action {

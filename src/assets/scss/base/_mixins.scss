@@ -31,7 +31,7 @@
         @include prefix(transform,translate(-50%, -50%), webkit ms);
     }
 }
-/* CENTER VERTICALLY
+/* MEDIA QUERIES
     How to: @include breapoint(xs) {};
     Allowed: xs, sm, md, lg
 */
@@ -56,3 +56,26 @@
       @warn "Breakpoint mixin supports: xs, sm, md, lg";
     }
   }
+
+/* ANIMATION
+    How to: @include keyframe(animation, 3s);
+    Allowed: string parameter
+*/
+@mixin animate-prefixer($property, $value...) {
+    -webkit-#{$property}: unquote('#{$value}');
+    #{$property}: unquote('#{$value}');
+}
+
+/* KEYFRAME
+    How to: @include animate-keyframe('animation-name') {};
+    Allowed: string parameter
+*/
+@mixin animate-keyframe($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
