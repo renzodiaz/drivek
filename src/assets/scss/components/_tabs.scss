@@ -1,0 +1,71 @@
+.tabs {
+    font-size: 0;
+    li {
+        font-size: 16px;
+        @extend %inline;
+        position: relative;
+        text-align: center;
+        @include prefix(transition, all .3s ease, webkit ms);
+        width: 33.33%;
+        a {
+            display: block;
+            font-size: .95em;
+            padding: 20px 0;
+            text-transform: uppercase;
+        }
+        .icon:before {
+            display: block;
+            font-size: 3.5em;
+        }
+        &:after {
+            background: $color-black;
+            content: '';
+            @include center('horizontal');
+            height: 2px;
+            top: 0;
+            width: 100px;
+        }
+        &.active {
+            a {
+                color: $color-yellow;
+            }
+            &:after {
+                content: none;
+            }
+        }
+    }
+    .sidebar, 
+    .content {
+        @include breakpoint(md) {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    .sidebar {
+        @include breakpoint(md) {
+            width: 30%;
+        }
+    }
+    .content__wrap {
+        @include breakpoint(md) {
+            margin-top: 30px;
+        }
+    }
+    .content {
+        font-size: 16px;
+        @include breakpoint(md) {
+            width: 70%;
+        }
+        h2 {
+            @extend %black;
+            font-size: 1.5em;
+            &.text-yellow {
+                color: $color-yellow;
+                margin: 15px 0;
+            }
+        }
+        p {
+            margin: 15px 0;
+        }
+    }
+}

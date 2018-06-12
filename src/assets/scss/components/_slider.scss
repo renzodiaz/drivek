@@ -10,8 +10,10 @@
             background: rgba(255, 255, 255, .3);
             @include center();
             padding: 30px 20px;
-            max-width: 50%;
             z-index: 999;
+            @include breakpoint(md) {
+                width: 50%;
+            }
             h2, p {
                 @extend %black;
             }

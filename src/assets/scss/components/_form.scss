@@ -1,0 +1,82 @@
+input, select, textarea, .field__upload {
+    appearance: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    border: 1px solid $color-gray;
+    color: $color-gray;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+    &:focus {
+        border-bottom: 2px solid $color-black;
+    }
+}
+.field__upload {
+    display: block;
+    margin-top: 15px;
+    @include breakpoint(sm) {
+        margin-top: 65px;
+    }
+}
+input[type="checkbox"],
+input[type="file"] {
+    display: none;
+}
+.checkbox {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 20px;
+    &:before {
+        content: "";
+        width: 2em;
+        height: 2em;
+        border: 1px solid #9A9A9A;
+        margin-right: 1em;
+        display: inline-block;
+        vertical-align: middle;
+        background: url('~@/assets/img/flag.svg') no-repeat center center;
+        background-size: 0;
+        -webkit-transition: background-size .2s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+        transition: background-size .2s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+    }
+    a {
+        text-decoration: underline;
+    }
+}
+:checked + .checkbox:before{
+    background-size: 80%;
+}
+
+form {
+    font-size: 0;
+    .field {
+        font-size: 16px;
+        margin: 10px 0;
+        @include breakpoint(sm) {
+            display: inline-block;
+            vertical-align: top;
+            width: 33.33%;
+        }
+        &.three {
+            font-size: 0;
+            margin: 0;
+            .form__field:last-child {
+                padding-right: 10px;
+            }
+        }
+        &.group {
+            .mt {
+                padding-top: 20px;
+            }
+        }
+    }
+    .form__field {
+        padding-right: 10px;
+    }
+    .button {
+        width: 100%;
+        @include breakpoint(sm) {
+            margin-top: 55px;
+        }
+    }
+}
