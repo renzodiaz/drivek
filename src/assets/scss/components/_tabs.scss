@@ -1,5 +1,6 @@
 .tabs {
     font-size: 0;
+    margin-top: -3px;
     padding-bottom: 30px;
     li {
         font-size: 16px;
@@ -11,6 +12,7 @@
         a {
             display: block;
             font-size: .95em;
+            overflow: hidden;
             padding: 20px 0;
             text-transform: uppercase;
         }
@@ -53,6 +55,9 @@
 .sidebar {
     @include breakpoint(md) {
         width: 30%;
+    }
+    img {
+        max-width: 200px;
     }
 }
 .content__wrap {

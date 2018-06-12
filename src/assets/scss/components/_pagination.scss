@@ -1,0 +1,16 @@
+.paginate-links  {
+    li {
+        @extend %inline;
+        cursor: pointer;
+        font-size: .85em;
+        margin: 15px;
+        &.active {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        &.disabled {
+            cursor: default;
+            color: $color-gray;
+        }
+    }
+}

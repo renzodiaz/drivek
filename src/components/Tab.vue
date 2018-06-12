@@ -2,15 +2,15 @@
     <div>
     <div class="tabs">
         <ul>
-            <li class="active"><a href="#content1" v-on:click.stop="currentTab"><i class="icon icon-list"></i><span>Participate</span></a></li>
-            <li><a href="#content2" v-on:click.stop="currentTab"><i class="icon icon-gallery"></i><span>Gallery</span></a></li>
-            <li><a href="#content3" v-on:click.stop="currentTab"><i class="icon icon-car"></i><span>Showcase</span></a></li>
+            <li class="active"><a href="#content1" @click="currentTab"><i class="icon icon-list"></i><span>Participate</span></a></li>
+            <li><a href="#content2" @click="currentTab"><i class="icon icon-gallery"></i><span>Gallery</span></a></li>
+            <li><a href="#content3" @click="currentTab"><i class="icon icon-car"></i><span>Showcase</span></a></li>
         </ul>
         <section class="tabs__content open" id="content1">
             <div class="container">
                 <div class="content__wrap">
                 <div class="sidebar">
-                        
+                    <img src="~@/assets/img/ph01.png" alt="">
                 </div>
                 <div class="content has--sidebar">
                     <h2>How to participate</h2>
@@ -125,7 +125,12 @@
                         <a href="" class="button is--yellow">Participate</a>
                     </div>
                     <ul class="box">
-                        <li class="box__item" v-for="item in cars">
+                        <paginate
+                        name="carlist"
+                        :list="cars"
+                        :per="9"
+                        >
+                        <li class="box__item" v-for="(item, index) in paginated('carlist')" :key="index">
                             <figure>
                                 <img :src="item.attrs.img" alt="">
                                 <figcaption>
@@ -135,6 +140,11 @@
                                 </figcaption>
                             </figure>
                         </li>
+                        </paginate>
+                        <paginate-links
+                        for="carlist"
+                        :show-step-links="true"
+                        ></paginate-links>
                     </ul>
                 </div>
             </div>
@@ -148,19 +158,23 @@
     </div>
 </template>
 <script>
+import Vue from 'vue'
 import json from '../data/cars.json'
+import VuePaginate from 'vue-paginate'
+Vue.use(VuePaginate)
 
 export default {
     name: "Tab",
     data() {
         return {
-            cars: json
+            cars: json,
+            paginate: ['carlist']
         }
     },
     methods: {
-        currentTab: function(event) {
-            event.preventDefault();
-            const _current = event.target;
+        currentTab: function(e) {
+            e.preventDefault();
+            const _current = e.currentTarget;
             const _curContent = document.querySelector(_current.getAttribute('href'));
             
             NodeList.prototype.forEach = Array.prototype.forEach;
