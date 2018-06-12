@@ -2,17 +2,17 @@
     <div>
     <div class="tabs">
         <ul>
-            <li class="active"><a href="#"><i class="icon icon-list"></i><span>Participate</span></a></li>
-            <li><a href="#"><i class="icon icon-gallery"></i><span>Gallery</span></a></li>
-            <li><a href="#"><i class="icon icon-car"></i><span>Showcase</span></a></li>
+            <li class="active"><a href="#content1" v-on:click.stop="currentTab"><i class="icon icon-list"></i><span>Participate</span></a></li>
+            <li><a href="#content2" v-on:click.stop="currentTab"><i class="icon icon-gallery"></i><span>Gallery</span></a></li>
+            <li><a href="#content3" v-on:click.stop="currentTab"><i class="icon icon-car"></i><span>Showcase</span></a></li>
         </ul>
-        <section class="tabs__content">
+        <section class="tabs__content open" id="content1">
             <div class="container">
                 <div class="content__wrap">
                 <div class="sidebar">
                         
                 </div>
-                <div class="content">
+                <div class="content has--sidebar">
                     <h2>How to participate</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at dolor enim expedita explicabo illum impedit iste labore, minima mollitia nemo officia rem rerum suscipit tempora. Blanditiis natus quas voluptatem!</p>
                     <a href="" class="button">Download Template</a>
@@ -113,7 +113,7 @@
         </div>
     </section>
     </div>
-    <section class="tabs__content open">
+    <section class="tabs__content" id="content2">
         <div class="container">
             <div class="content__wrap">
                 <div class="content">
@@ -140,6 +140,11 @@
             </div>
         </div>
     </section>
+    <section class="tabs__content" id="content3">
+        <div class="container">
+            <h1>Showcase</h1>
+        </div>
+    </section>
     </div>
 </template>
 <script>
@@ -150,6 +155,26 @@ export default {
     data() {
         return {
             cars: json
+        }
+    },
+    methods: {
+        currentTab: function(event) {
+            event.preventDefault();
+            const _current = event.target;
+            const _curContent = document.querySelector(_current.getAttribute('href'));
+            
+            NodeList.prototype.forEach = Array.prototype.forEach;
+
+            document.querySelectorAll('.tabs li').forEach(function(el) {
+                el.classList.remove('active');
+            })
+
+            document.querySelectorAll('.tabs__content').forEach(function(el) {
+                el.classList.remove('open');
+            })
+
+            _current.parentElement.classList.add('active');
+            _curContent.classList.add('open');
         }
     }
 }
