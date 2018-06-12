@@ -60,7 +60,8 @@ export default {
             slickOptions: {
                 slidesToShow: 1,
                 dots: false,
-                arrows: false
+                nextArrow: '<i class="icon icon-arrow-right"></i>',
+                prevArrow: '<i class="icon icon-arrow-left"></i>'
             }
         }
     }

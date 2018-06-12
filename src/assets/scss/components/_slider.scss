@@ -32,4 +32,28 @@
             }
         }
     }
+    .slick-arrow {
+        border-radius: 50%;
+        @include center();
+        cursor: pointer;
+        display: inline-block;
+        height: 50px;
+        transition: all .3s ease;
+        width: 50px;
+        z-index: 99;        
+        &:hover {
+            background: $color-white;
+        }
+        &:before {
+            color: $color-black;
+            font-size: 1.5em;
+            @include center(both);
+        }
+        &.icon-arrow-right {
+            right: 20px;
+        }
+        &.icon-arrow-left {
+            left: 20px;
+        }
+    }
 }
